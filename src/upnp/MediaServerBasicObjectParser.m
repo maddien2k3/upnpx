@@ -186,7 +186,7 @@
     [self setLastPlaybackPosition:@""];
     [self setLastPlaybacktime:@""];
     [self setPlaybackCount:@""];
-    [self.creators removeAllObjects];
+    [self setCreator:@""];
     [self.authors removeAllObjects];
     [self.directors removeAllObjects];
 
@@ -195,7 +195,6 @@
     [uriCollection release];
     uriCollection = [[NSMutableDictionary alloc] init];
 
-    _creators = [[NSMutableArray alloc] init];
     _authors = [[NSMutableArray alloc] init];
     _directors = [[NSMutableArray alloc] init];
 }
@@ -247,7 +246,7 @@
         [media setLastPlaybackPosition:self.lastPlaybackPosition];
         [media setLastPlaybacktime:self.lastPlaybacktime];
         [media setPlaybackCount:self.playbackCount];
-        [media setCreators:self.creators];
+//        [media setCreator:self.creator];
         [media setAuthors:self.authors];
         [media setDirectors:self.directors];
 
@@ -279,6 +278,7 @@
         [media setArtist:artist];
         [media setAlbum:album];
         [media setDate:date];
+        [media setCreator:self.creator];
         [media setGenre:genre];
         [media setOriginalTrackNumber:originalTrackNumber];
         [media setUri:uri];
@@ -366,11 +366,6 @@
     [resourceURI retain];
 }
 
-- (void)setCreator: (NSString *)value
-{
-    [self.creators addObject:value];
-}
-
 - (void)setAuthor: (NSString *)value
 {
     [self.authors addObject:value];
@@ -379,6 +374,14 @@
 - (void)setDirector: (NSString *)value
 {
     [self.directors addObject:value];
+}
+
+-(NSString*) creator{
+    return _creator;
+}
+
+-(void) setCreator:(NSString *)creator{
+    _creator = [creator copy];
 }
 
 @end

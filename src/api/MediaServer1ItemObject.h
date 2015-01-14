@@ -37,6 +37,7 @@
 
 @interface MediaServer1ItemObject : MediaServer1BasicObject {
     NSString *album;
+    NSString *creator;
     NSString *date;
     NSString *genre;
     NSString *originalTrackNumber;
@@ -56,6 +57,7 @@
 -(void)addRes:(MediaServer1ItemRes*) res;
 
 @property(retain, nonatomic) NSString *album;
+@property(retain, nonatomic) NSString *creator;
 @property(retain, nonatomic) NSString *date;
 @property(retain, nonatomic) NSString *genre;
 @property(retain, nonatomic) NSString *originalTrackNumber;

@@ -56,6 +56,7 @@
     NSString *album;
     NSString *date;
     NSString *genre;
+    NSString *_creator;
     NSString *originalTrackNumber;
     NSString *uri;
     NSString *protocolInfo;
@@ -99,7 +100,7 @@
 @property(readwrite, retain) NSString *bitrate;
 @property(readwrite, retain) NSString *albumArt;
 
-@property (nonatomic, retain) NSMutableArray *creators;
+
 @property (nonatomic, retain) NSMutableArray *authors;
 @property (nonatomic, retain) NSMutableArray *directors;
 @property (readwrite, retain) NSString *longDescription;
