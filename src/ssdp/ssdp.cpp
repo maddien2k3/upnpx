@@ -328,7 +328,7 @@ int SSDP::ReadLoop(){
         FD_ZERO(&mReadFDS);
         FD_ZERO(&mWriteFDS);
         FD_ZERO(&mExceptionFDS);
-        if (!mMulticastSocket) {
+        if (mMulticastSocket == INVALID_SOCKET) {
             printf("Multicast socket failed!\n");
             break;
         }
@@ -337,7 +337,7 @@ int SSDP::ReadLoop(){
         FD_SET(mMulticastSocket, &mWriteFDS);
         FD_SET(mMulticastSocket, &mExceptionFDS);
 
-        if (!mUnicastSocket) {
+        if (mUnicastSocket == INVALID_SOCKET ) {
             printf("Multicast socket failed!\n");
             break;
         }
